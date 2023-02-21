@@ -59,3 +59,31 @@ mysql> desc addressbook;
 +-----------+-------------+------+-----+---------+-------+
 7 rows in set (0.01 sec)
 
+---------------------------------------------------------------------------------------------------------
+
+UC3 :- Ability to insert new Contacts to Address Book.
+==========================================================================================================
+
+mysql> insert into AddressBook( FirstName, LastName, Address,City,Zip,phoneNO, Email) values  ('Supriya','Bhurle','Samata Colony','Bramhapuri','441206','9443561786','supriya09@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into AddressBook( FirstName, LastName, Address,City,Zip,phoneNO, Email) values  ('Shivani','Nandeshwar','Nandanwan','Nagpur','441207','9443545678','shvani08@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into AddressBook( FirstName, LastName, Address,City,Zip,phoneNO, Email) values  ('Mansi','Mannurwar','Hingewadi','Pune','441208','7856413897','mansi04@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select star * from AddressBook;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from AddressBook' at line 1
+mysql> select * from AddressBook;
++-----------+------------+---------------+------------+--------+------------+---------------------+
+| FirstName | LastName   | Address       | City       | Zip    | PhoneNo    | Email               |
++-----------+------------+---------------+------------+--------+------------+---------------------+
+| Supriya   | Bhurle     | Samata Colony | Bramhapuri | 441206 | 9443561786 | supriya09@gmail.com |
+| Shivani   | Nandeshwar | Nandanwan     | Nagpur     | 441207 | 9443545678 | shvani08@gmail.com  |
+| Mansi     | Mannurwar  | Hingewadi     | Pune       | 441208 | 7856413897 | mansi04@gmail.com   |
++-----------+------------+---------------+------------+--------+------------+---------------------+
+3 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------------
+
