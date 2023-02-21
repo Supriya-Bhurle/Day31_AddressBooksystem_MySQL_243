@@ -87,26 +87,3 @@ mysql> select * from AddressBook;
 
 ----------------------------------------------------------------------------------------------------------
 
-UC4 :- Ability to edit existing contact person using their name.
-==========================================================================================================
-
-mysql> update addressbook set PhoneNo = '8669136896' where FirstName = 'Supriya';
-Query OK, 1 row affected (0.00 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> update addressbook set Zip = '441212' where FirstName = 'shivani';
-Query OK, 1 row affected (0.00 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> select * from addressbook;
-+-----------+------------+---------------+------------+--------+------------+---------------------+
-| FirstName | LastName   | Address       | City       | Zip    | PhoneNo    | Email               |
-+-----------+------------+---------------+------------+--------+------------+---------------------+
-| Supriya   | Bhurle     | Samata Colony | Bramhapuri | 441206 | 8669136896 | supriya09@gmail.com |
-| Shivani   | Nandeshwar | Nandanwan     | Nagpur     | 441212 | 9443545678 | shvani08@gmail.com  |
-| Mansi     | Mannurwar  | Hingewadi     | Pune       | 441208 | 7856413897 | mansi04@gmail.com   |
-+-----------+------------+---------------+------------+--------+------------+---------------------+
-3 rows in set (0.00 sec)
-
----------------------------------------------------------------------------------------------------------
-
