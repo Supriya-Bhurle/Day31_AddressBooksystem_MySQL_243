@@ -139,3 +139,50 @@ mysql> select * from addressbook where city = 'Nagpur' and state = 'Maharashtra'
 1 row in set (0.00 sec)
 
 ----------------------------------------------------------------------------------------------------------
+
+UC7 :- Ability to understand the size of address book by City and State
+      Here size indicates the count
+
+========================================================================================================
+
+mysql> select * from addressbook;
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+
+| FirstName | LastName   | Address   | City   | Zip    | PhoneNo    | Email              | state       |
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+
+| Shivani   | Nandeshwar | Nandanwan | Nagpur | 441212 | 9443545678 | shvani08@gmail.com | Maharashtra |
+| Mansi     | Mannurwar  | Hingewadi | Pune   | 441208 | 7856413897 | mansi04@gmail.com  | Maharashtra |
+| Supriya   | Bhurle     | Nandanwan | Nagpur | 441212 | 9442181947 | supriya@gmail.com  | Maharashtra |
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select count(City), count(State) from addressbook;
++-------------+--------------+
+| count(City) | count(State) |
++-------------+--------------+
+|           3 |            3 |
++-------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select count(FirstName) from addressbook;
++------------------+
+| count(FirstName) |
++------------------+
+|                3 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql>  select count(*) from addressbook where State = 'Maharashtra';
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+mysql>  select count(*) from addressbook where City = 'Nagpur';
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
