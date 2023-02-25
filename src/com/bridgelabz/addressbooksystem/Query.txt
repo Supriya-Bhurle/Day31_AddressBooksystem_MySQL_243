@@ -308,4 +308,22 @@ mysql>  select count(Type) from addressbook;
 |           3 |
 +-------------+
 1 row in set (0.00 sec)
------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+UC10 :- Ability to add person to both Friend and
+Family
+==========================================================================================================
+mysql> INSERT INTO addressbook (firstName, LastName, Address, city, zip, phoneNo, Email, state)values
+    -> ('Surabhi','Kohapare','Jatpara gate','Chandrapur','441207','8668158325','surabhi@gmail.com','Maharashtra');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from addressbook;
++-----------+------------+--------------+------------+--------+------------+--------------------+-------------+------------+-------------+
+| FirstName | LastName   | Address      | City       | Zip    | PhoneNo    | Email              | Name        | Type       | state       |
++-----------+------------+--------------+------------+--------+------------+--------------------+-------------+------------+-------------+
+| Shivani   | Nandeshwar | Nandanwan    | Nagpur     | 441212 | 9443545678 | shvani08@gmail.com | ContactName | Family     | Maharashtra |
+| Mansi     | Mannurwar  | Hingewadi    | Pune       | 441208 | 7856413897 | mansi04@gmail.com  | ContactName | profession | Maharashtra |
+| Supriya   | Bhurle     | Nandanwan    | Nagpur     | 441212 | 9442181947 | supriya@gmail.com  | NULL        | Friends    | Maharashtra |
+| Surabhi   | Kohapare   | Jatpara gate | Chandrapur | 441207 | 8668158325 | surabhi@gmail.com  | NULL        | NULL       | Maharashtra |
++-----------+------------+--------------+------------+--------+------------+--------------------+-------------+------------+-------------+
+4 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
