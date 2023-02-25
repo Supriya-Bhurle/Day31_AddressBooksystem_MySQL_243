@@ -202,3 +202,63 @@ mysql> select * from addressbook where City = 'Nagpur' order by FirstName ASC;
 2 rows in set (0.00 sec)
 
 ---------------------------------------------------------------------------------------------------------
+
+UC9 :- Ability to identify each Address Book with name and
+Type.
+=========================================================================================================
+
+mysql> alter table addressbook add Name Varchar(20) after Email;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table addressbook add Type Varchar(20) after Name;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+------------+-----------+--------+--------+------------+--------------------+------+------+-------------+
+| FirstName | LastName   | Address   | City   | Zip    | PhoneNo    | Email              | Name | Type | state       |
++-----------+------------+-----------+--------+--------+------------+--------------------+------+------+-------------+
+| Shivani   | Nandeshwar | Nandanwan | Nagpur | 441212 | 9443545678 | shvani08@gmail.com | NULL | NULL | Maharashtra |
+| Mansi     | Mannurwar  | Hingewadi | Pune   | 441208 | 7856413897 | mansi04@gmail.com  | NULL | NULL | Maharashtra |
+| Supriya   | Bhurle     | Nandanwan | Nagpur | 441212 | 9442181947 | supriya@gmail.com  | NULL | NULL | Maharashtra |
++-----------+------------+-----------+--------+--------+------------+--------------------+------+------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> update addressbook set Name = 'ContactName' where FirstName = 'Mansi' or FirstName = 'shivani';
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+------+-------------+
+| FirstName | LastName   | Address   | City   | Zip    | PhoneNo    | Email              | Name        | Type | state       |
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+------+-------------+
+| Shivani   | Nandeshwar | Nandanwan | Nagpur | 441212 | 9443545678 | shvani08@gmail.com | ContactName | NULL | Maharashtra |
+| Mansi     | Mannurwar  | Hingewadi | Pune   | 441208 | 7856413897 | mansi04@gmail.com  | ContactName | NULL | Maharashtra |
+| Supriya   | Bhurle     | Nandanwan | Nagpur | 441212 | 9442181947 | supriya@gmail.com  | NULL        | NULL | Maharashtra |
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> update addressbook set Type = 'Friends' where FirstName = 'Supriya';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook set Type = 'Family' where FirstName = 'Shivani';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook set Type = 'profession' where FirstName = 'Mansi';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+------------+-------------+
+| FirstName | LastName   | Address   | City   | Zip    | PhoneNo    | Email              | Name        | Type       | state       |
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+------------+-------------+
+| Shivani   | Nandeshwar | Nandanwan | Nagpur | 441212 | 9443545678 | shvani08@gmail.com | ContactName | Family     | Maharashtra |
+| Mansi     | Mannurwar  | Hingewadi | Pune   | 441208 | 7856413897 | mansi04@gmail.com  | ContactName | profession | Maharashtra |
+| Supriya   | Bhurle     | Nandanwan | Nagpur | 441212 | 9442181947 | supriya@gmail.com  | NULL        | Friends    | Maharashtra |
++-----------+------------+-----------+--------+--------+------------+--------------------+-------------+------------+-------------+
+3 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
